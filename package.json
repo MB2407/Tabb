@@ -1,0 +1,22 @@
+{
+    "name": "Tab",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@microsoft/teamsfx-cli": "1.*"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@emotion/react": "^11.9.3",
+        "@emotion/styled": "^11.9.3",
+        "@mui/material": "^5.8.7",
+        "@mui/styled-engine-sc": "^5.8.0",
+        "react-icons": "^4.4.0",
+        "react-router-dom": "^6.3.0",
+        "styled-components": "^5.3.5"
+    }
+}
