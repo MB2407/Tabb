@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Leave from './pages/Leave';
 import Balance from './pages/Balance';
@@ -12,12 +12,17 @@ function App() {
     <>
       <Router>
         <Navbar />
-        <Switch>
-          <Route path='/' exact element={ <Home/> } />
-          <Route path='/leave' exact element={ <Leave/> } />
-          <Route path='/balance' exact element={ <Balance/> } />
-          <Route path='/upcoming' exact element={ <Upcoming/> } />
-        </Switch>
+        {/*<Route exact path="/">
+
+          <Redirect to="/Home" />
+
+  </Route>*/}
+        <>
+          <Route path='/home' exact component={ Home } />
+          <Route path='/leave' exact component={ Leave } />
+          <Route path='/balance' exact component={ Balance } />
+          <Route path='/upcoming' exact component={ Upcoming } />
+        </>
       </Router>
     </>
   );
