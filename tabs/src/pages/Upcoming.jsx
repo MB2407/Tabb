@@ -1,4 +1,5 @@
 import React from 'react';
+import './Upcoming.css';
 
 function Upcoming() {
   return (

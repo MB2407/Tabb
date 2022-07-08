@@ -1,10 +1,12 @@
 import * as React from 'react';
+import './Home.css';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+
 
 const bull = (
   <Box m={2} pt={3}
@@ -18,46 +20,70 @@ const bull = (
 function Home() {
   return (
     <div className='home'>
-      <Card sx={{ minWidth: 275 }}>
+    
+      <Card sx={{ minWidth: 550, margin: " 40px 40px", backgroundColor:"#1a83ff" }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
+        
         <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
+          Employee Details
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+        <br/>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Name: XYZ
         </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Age: 30
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Contact no.: 1234xxxxxx
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Address: A-1, Ashok Vihar, Phase-1, New Delhi
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small">Edit</Button>
       </CardActions>
     </Card>
-    <Card sx={{ minWidth: 275 }}>
+    <br/>
+    <Card sx={{ minWidth: 275, margin: " 10px 10px", backgroundColor:"#1a83ff" }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
         <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
+          Department details
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
+        <br/>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Department:IT
         </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Manager: Mr.Nick Fury
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Employee id: 13
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button sx={{size:"small", alignContent:"right"}}>Edit</Button>
+      </CardActions>
+    </Card>
+    <Card sx={{ minWidth: 275, margin: " 10px 10px", backgroundColor:"#1a83ff" }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          Leave Balance
+        </Typography>
+        <br/>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Paid leaves: 9
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Sick leaves: 10
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          Carry over from previous year: 3
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Edit</Button>
       </CardActions>
     </Card>
     </div>
