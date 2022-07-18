@@ -7,6 +7,7 @@ import Leave from './pages/Leave';
 import Balance from './pages/Balance';
 import Upcoming from './pages/Upcoming';
 
+
 function App() {
   return (
     <>

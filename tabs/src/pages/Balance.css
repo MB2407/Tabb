@@ -1,0 +1,46 @@
+.Balance {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3ch;
+    
+    }
+
+    h1{
+        padding-bottom: 3ch;
+        text-align: center;
+        padding-top: 1.5ch;
+    }
+    
+    table {
+    
+    border: 3px solid #060b26;
+    width: 1000px;
+    height: 400px;
+    
+    }
+    
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    th {
+    
+    border-bottom: 2px solid #060b26;
+    border-left: 2px solid #060b26;
+    background-color: #060b26;
+    color: white
+    ;
+    }
+    
+    td {
+    text-align: center;
+    border-left: 2px solid #060b26;
+    border-bottom: 2px solid #060b26;
+    background-color: #1a83ff;
+    color: white
+    }
+    

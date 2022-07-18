@@ -1,59 +1,67 @@
-import React from 'react';
+import * as React from 'react';
+import axios from 'axios';
+import { useEffect,useState } from 'react';
 import './Balance.css';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-function createData(type, allowance, availed, remaining) {
-  return { type, allowance, availed, remaining};
-}
-
-const rows = [
-  createData('Paid leave', 15, 5, 10),
-  createData('Sick leave', 15, 9, 6),
-  createData('Maternity leave', 30, 0, 30),
-  createData('Carry over from previous year', 3, 2, 1),
-];
 
 function Balance() {
-  return (
-    <div className='balance'>
-      <h1>Balance Leaves</h1>
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table" >
-        <TableHead>
-          <TableRow >
-            <TableCell>Type</TableCell>
-            <TableCell align="right">Allowance</TableCell>
-            <TableCell align="right">Availed</TableCell>
-            <TableCell align="right">Remaining</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.type}
-              </TableCell>
-              <TableCell align="right">{row.allowance}</TableCell>
-              <TableCell align="right">{row.availed}</TableCell>
-              <TableCell align="right">{row.remaining}</TableCell>
-              
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+  const url= 'https://scenarioemployee.azurewebsites.net/api/HttpTrigger2?code=G_bxgTEjIOokO0kudpvXmSuZ77lhXL4b2wnysbA85kEBAzFuocpuxA==&id=3'
+  const [leaves, setLeaves] = useState(null)
 
+  let info = null
+
+  useEffect(() => {
+    axios.get(url)
+      .then(response => {
+        setLeaves(response.data)
+        console.log(response.data)
+
+      })
+  }, [url])
+
+  if(leaves){
+    info = 
+    <div className="App">
+      <h1>Balance Leaves</h1>
+      <table class="center">
+        <tr>
+          <th>Type of Leave</th>
+          <th>Allowance</th>
+          <th>Availed</th>
+          <th>Remaining</th>
+        </tr>
+        <tr>
+          <td>Paid Leave</td>
+          <td>{leaves.paidAllowance}</td>
+          <td>{leaves.paidAvailed}</td>
+          <td>{leaves.paidRemaining}</td>
+        </tr>
+        <tr>
+          <td>Sick Leave</td>
+          <td>{leaves.sickAllowance}</td>
+          <td>{leaves.sickAvailed}</td>
+          <td>{leaves.sickRemaining}</td>
+        </tr>
+        <tr>
+          <td>Maternity Leave</td>
+          <td>{leaves.maternityAllowance}</td>
+          <td>{leaves.maternityAvailed}</td>
+          <td>{leaves.maternityRemaining}</td>
+        </tr>
+        <tr>
+          <td>Leaves carried over from previous year</td>
+          <td>{leaves.prevAllowance}</td>
+          <td>{leaves.prevAvailed}</td>
+          <td>{leaves.prevRemaining}</td>
+        </tr>
+      </table>
     </div>
-  );
+  }
+  
+  return(
+    <div>
+      {info}
+    </div>
+  )
 }
 
 export default Balance;
